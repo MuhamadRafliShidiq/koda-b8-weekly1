@@ -15,10 +15,10 @@
     f@{ shape: rect, label: "i++" }
     g@{ shape: dbl-circ, label: "Stop"}
 
-    a-->z-->b-->c-->d-->g
+    a-->z-->b-->c-->d--False-->g
 
     d--True-->e-->f
-    f--False-->d
+    f-->d
 
 
 ```
