@@ -47,9 +47,9 @@
     f@{ shape: rect, label: "i++" }
     g@{ shape: dbl-circ, label: "Stop"}
 
-    a-->z-->b-->c-->d-->g
+    a-->z-->b-->c-->d--False-->g
 
-    d---->e-->f
+    d--True-->e-->f
     f-->d
 
 
