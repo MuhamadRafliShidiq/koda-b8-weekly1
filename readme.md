@@ -14,7 +14,7 @@
     f@{ shape: rect, label: "Hitung Subtotal" }
     g@{ shape: rect, label: "Simpan ke array Pesanan" }
     h@{ shape: rect, label: "Tambahkan ke Total Harga" }
-    i@{ shape: lean-r, label : "Tampilkan Pesanan Berhasil"}
+    i@{ shape: lean-r, label : "Tampilkan Pesanan Berhasil ditambahkan"}
     z@{ shape: lean-r, label : "'Menu Tidak Ditemukan!'"}
     j@{ shape: diamond, label: "Tambah Pesanan Lagi?"}
     k@{ shape: lean-r, label : "Tampilkan Struk"}
