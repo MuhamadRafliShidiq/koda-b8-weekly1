@@ -122,3 +122,64 @@ function bayar() {
 
     })
 }
+
+let pesanan = []
+// Function Pesan Makanan
+function pesanMakanan() {
+
+    // tampilkan menu
+    tampilkanMenu()
+
+    // pilih menu makanan atau minuman yang ingin dibeli
+    rl.question("\nPilih menu (id): ", function (pilih) {
+
+        // pilih berapa jumlah yang ingin dibeli
+        rl.question("Jumlah beli: ", function (jumlah) {
+
+            let makanan = cariMenu(Number(pilih))
+            if (makanan !== null) {
+
+                let subtotal = makanan.harga * Number(jumlah)
+                totalHarga += subtotal
+
+                // simpan ke array pesanan
+                pesanan.push({
+                    nama: makanan.nama,
+                    harga: makanan.harga,
+                    jumlah: Number(jumlah),
+                    subtotal: subtotal
+                })
+
+                console.log("\nPesanan berhasil ditambahkan!")
+                console.log(`Menu     : ${makanan.nama}`)
+                console.log(`Jumlah   : ${jumlah}`)
+                console.log(`Subtotal : Rp ${subtotal}`)
+
+            } else {
+
+                console.log("\nMenu tidak ditemukan!")
+            }
+
+            // tanya lagi
+            rl.question("\nTambah pesanan lagi? (ya/tidak): ", function (jawab) {
+
+                if (jawab.toLowerCase() === "ya" || jawab.toLowerCase() === "y") {
+
+                    pesanMakanan()
+
+                } else {
+
+                    tampilkanStruk()
+                    bayar()
+
+                }
+
+            })
+
+        })
+
+    })
+
+}
+// Jalankan Program
+pesanMakanan()
