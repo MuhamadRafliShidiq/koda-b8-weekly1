@@ -74,4 +74,14 @@ function tampilkanMenu() {
     console.log("=================================")
 }
 
+// Function Cari Menu
+function cariMenu(id) {
+    for (let i = 0; i < menu.length; i++) {
+        if (menu[i].id === id) {
+            return menu[i]
+        }
+    }
+    return null
+}
+
   
