@@ -61,7 +61,6 @@ const menu = [
 
 // Function Tampilkan Menu
 function tampilkanMenu() {
-
     console.log("\n=================================")
     console.log("      MENU RESTO LAZATTO")
     console.log("=================================")
@@ -87,7 +86,6 @@ function cariMenu(id) {
 let totalHarga = 0
 // Function Tampilkan Struk
 function tampilkanStruk() {
-
     console.log("\n=================================")
     console.log("         STRUK PEMBELIAN")
     console.log("=================================")
@@ -103,8 +101,24 @@ function tampilkanStruk() {
 
     console.log("=================================")
     console.log(`TOTAL BAYAR : Rp ${totalHarga}`)
-
     console.log("\nSilahkan ditunggu dan lakukan pembayaran terlebih dahulu!")
 }
 
-  
+// Pembayaran
+function bayar() {
+    rl.question("Masukkan jumlah bayar: Rp ", function (bayar) {
+        if (bayar < totalHarga) {
+            console.log("Uang kurang, silahkan bayar lagi!")
+            bayar()
+        } else if (bayar > totalHarga) {
+            let kembalian = bayar - totalHarga
+            console.log(`Kembalian: Rp ${kembalian}`)
+            console.log(`Terima kasih sudah membeli di Lazatto!"`)
+            rl.close()
+        } else {
+            console.log("Terima kasih sudah membeli di Lazatto!")
+            rl.close()
+        }
+
+    })
+}
