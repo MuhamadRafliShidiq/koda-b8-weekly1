@@ -84,4 +84,27 @@ function cariMenu(id) {
     return null
 }
 
+let totalHarga = 0
+// Function Tampilkan Struk
+function tampilkanStruk() {
+
+    console.log("\n=================================")
+    console.log("         STRUK PEMBELIAN")
+    console.log("=================================")
+
+    // tampilkan pesanan
+    for (let i = 0; i < pesanan.length; i++) {
+
+        console.log(`${i + 1}. ${pesanan[i].nama}`)
+        console.log(`   Harga    : Rp ${pesanan[i].harga}`)
+        console.log(`   Jumlah   : ${pesanan[i].jumlah}`)
+        console.log(`   Subtotal : Rp ${pesanan[i].subtotal}`)
+    }
+
+    console.log("=================================")
+    console.log(`TOTAL BAYAR : Rp ${totalHarga}`)
+
+    console.log("\nSilahkan ditunggu dan lakukan pembayaran terlebih dahulu!")
+}
+
   
