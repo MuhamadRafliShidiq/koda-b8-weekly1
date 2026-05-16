@@ -59,4 +59,19 @@ const menu = [
     }
 ]
 
+// Function Tampilkan Menu
+function tampilkanMenu() {
+
+    console.log("\n=================================")
+    console.log("      MENU RESTO LAZATTO")
+    console.log("=================================")
+
+    for (let i = 0; i < menu.length; i++) {
+        console.log(
+            `${menu[i].id}. ${menu[i].nama} - Rp ${menu[i].harga}`
+        )
+    }
+    console.log("=================================")
+}
+
   
