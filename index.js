@@ -133,27 +133,54 @@ function cariMenu(dataMenu, id) {
     return null;
 }
 
-let totalHarga = 0
-// Function Tampilkan Struk
-function tampilkanStruk() {
-    console.log("\n=================================")
-    console.log("         STRUK PEMBELIAN")
-    console.log("=================================")
+let pesanan = []
+let totalHarga = 0;
 
-    // tampilkan pesanan
-    for (let i = 0; i < pesanan.length; i++) {
+function pesanMakanan(dataMenu, kategori) {
 
-        console.log(`${i + 1}. ${pesanan[i].nama}`)
-        console.log(`   Harga    : Rp ${pesanan[i].harga}`)
-        console.log(`   Jumlah   : ${pesanan[i].jumlah}`)
-        console.log(`   Subtotal : Rp ${pesanan[i].subtotal}`)
+    console.log(`\n===== ${kategori} =====`);
+
+    for (let i = 0; i < dataMenu.length; i++) {
+        console.log(
+            `${dataMenu[i].id}. ${dataMenu[i].nama} - Rp.${dataMenu[i].harga}`
+        );
     }
 
-    console.log("=================================")
-    console.log(`TOTAL BAYAR : Rp ${totalHarga}`)
-    console.log("\nSilahkan ditunggu dan lakukan pembayaran terlebih dahulu!")
-}
+    rl.question("\nPilih makanan (id): ", function (idMakanan) {
+        rl.question("Jumlah beli: ", function (jumlah) {
+            let makanan = cariMenu(dataMenu, Number(idMakanan));
+            if (makanan !== null) {
+                let subtotal = makanan.harga * Number(jumlah);
+                totalHarga += subtotal;
 
+                if (!pesanan.some(item => item.nama === makanan.nama)) {
+                    pesanan.push({
+                        nama: makanan.nama,
+                        harga: makanan.harga,
+                        jumlah: Number(jumlah),
+                        subtotal: subtotal
+                    });
+                } else {
+                    for (let i = 0; i < pesanan.length; i++) {
+                        if (pesanan[i].nama === makanan.nama) {
+                            pesanan[i].jumlah += Number(jumlah);
+                            pesanan[i].subtotal += subtotal;
+                            break;
+                        }
+                    }
+                }
+                console.log("\nPesanan berhasil ditambahkan!");
+                console.log(`Menu     : ${makanan.nama}`);
+                console.log(`Jumlah   : ${jumlah}`);
+                console.log(`Subtotal : Rp ${subtotal}`);
+            } else {
+
+                console.log("\nMenu tidak ditemukan!");
+            }
+            tanyaLagi();
+        });
+    });
+}
 // Pembayaran
 function bayar() {
     rl.question("Masukkan jumlah bayar: Rp ", function (bayar) {
