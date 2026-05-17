@@ -231,4 +231,4 @@ function tampilkanStruk() {
     console.log("\nSilahkan ditunggu dan lakukan pembayaran terlebih dahulu!");
 }
 // Jalankan Program
-pesanMakanan()
+tampilkanMenu();
