@@ -5,12 +5,17 @@ const rl = createInterface({
 )}
 
 // Data Menu Lazatto
-
 const friedChicken = [
     { id: 1, nama: "Ayam Dada", harga: 18000 },
     { id: 2, nama: "Ayam Paha Atas", harga: 18000 },
     { id: 3, nama: "Ayam Paha Bawah", harga: 14000 },
     { id: 4, nama: "Ayam Sayap", harga: 23000 }
+];
+const geprek = [
+    { id: 1, nama: "Ayam Geprek Dada", harga: 22000 },
+    { id: 2, nama: "Ayam Geprek Paha Atas", harga: 22000 },
+    { id: 3, nama: "Ayam Geprek Paha Bawah", harga: 19500 },
+    { id: 4, nama: "Ayam Geprek Sayap", harga: 18000 }
 ];
 
 // Function Tampilkan Menu
