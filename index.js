@@ -183,21 +183,20 @@ function pesanMakanan(dataMenu, kategori) {
 }
 // Pembayaran
 function bayar() {
-    rl.question("Masukkan jumlah bayar: Rp ", function (bayar) {
-        if (bayar < totalHarga) {
-            console.log("Uang kurang, silahkan bayar lagi!")
-            bayar()
-        } else if (bayar > totalHarga) {
-            let kembalian = bayar - totalHarga
-            console.log(`Kembalian: Rp ${kembalian}`)
-            console.log(`Terima kasih sudah membeli di Lazatto!"`)
-            rl.close()
+    rl.question("Masukkan jumlah bayar: Rp ", function (nominal) {
+        if (nominal == totalHarga) {
+            console.log("\nTerima kasih sudah belanja di Lazatto!");
+            rl.close();
+        } else if (nominal > totalHarga) {
+            let kembalian = nominal - totalHarga;
+            console.log(`\nKembalian: Rp ${kembalian}`);
+            console.log(`Terima kasih sudah belanja di Lazatto!"`);
+            rl.close();
         } else {
-            console.log("Terima kasih sudah membeli di Lazatto!")
-            rl.close()
+            console.log("\nMasukkan jumlah bayar yang sesuai!");
+            bayar();
         }
-
-    })
+    });
 }
 
 function tanyaLagi() {
