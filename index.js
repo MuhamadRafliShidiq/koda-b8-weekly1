@@ -17,6 +17,12 @@ const geprek = [
     { id: 3, nama: "Ayam Geprek Paha Bawah", harga: 19500 },
     { id: 4, nama: "Ayam Geprek Sayap", harga: 18000 }
 ];
+const sadazz = [
+    { id: 1, nama: "Sadazz Dada", harga: 23000 },
+    { id: 2, nama: "Sadazz Paha Atas", harga: 23000 },
+    { id: 3, nama: "Sadazz Paha Bawah", harga: 23000 },
+    { id: 4, nama: "Sadazz Sayap", harga: 23000 }
+];
 
 // Function Tampilkan Menu
 function tampilkanMenu() {
