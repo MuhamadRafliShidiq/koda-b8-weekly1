@@ -23,6 +23,26 @@ const sadazz = [
     { id: 3, nama: "Sadazz Paha Bawah", harga: 23000 },
     { id: 4, nama: "Sadazz Sayap", harga: 23000 }
 ];
+const ayamCLBK = [
+    { id: 1, nama: "Ayam CLBK Dada", harga: 22000 },
+    { id: 2, nama: "Ayam CLBK Paha Atas", harga: 22000 },
+    { id: 3, nama: "Ayam CLBK Paha Bawah", harga: 22000 },
+    { id: 4, nama: "Ayam CLBK Sayap", harga: 22000 }
+];
+
+const paketChicken = [
+    { id: 1, nama: "Paket Dada", harga: 22000 },
+    { id: 2, nama: "Paket Paha Atas", harga: 22000 },
+    { id: 3, nama: "Paket Paha Bawah", harga: 19500 },
+    { id: 4, nama: "Paket Sayap", harga: 18000 }
+];
+
+const paketGeprek = [
+    { id: 1, nama: "Paket Geprek Dada", harga: 22000 },
+    { id: 2, nama: "Paket Geprek Paha Atas", harga: 22000 },
+    { id: 3, nama: "Paket Geprek Paha Bawah", harga: 19500 },
+    { id: 4, nama: "Paket Geprek Sayap", harga: 18000 }
+];
 
 // Function Tampilkan Menu
 function tampilkanMenu() {
