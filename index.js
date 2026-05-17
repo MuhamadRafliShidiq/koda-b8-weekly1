@@ -200,63 +200,36 @@ function bayar() {
     })
 }
 
-let pesanan = []
-// Function Pesan Makanan
-function pesanMakanan() {
+function tanyaLagi() {
+    rl.question("\nApakah ingin pesan lagi? (y/t): ", function (jawaban) {
+        if (jawaban.toLowerCase() === "y" || jawaban.toLowerCase() === "ya") {
+            tampilkanMenu();
+        } else if (jawaban.toLowerCase() === "t" || jawaban.toLowerCase() === "tidak") {
+            tampilkanStruk();
+            bayar();
+        } else {
+            console.log("\nJawaban tidak valid!");
+            tanyaLagi();
+        }
+    });
+}
 
-    // tampilkan menu
-    tampilkanMenu()
+function tampilkanStruk() {
+    console.log("\n=================================");
+    console.log("         STRUK PEMBELIAN");
+    console.log("=================================");
 
-    // pilih menu makanan atau minuman yang ingin dibeli
-    rl.question("\nPilih menu (id): ", function (pilih) {
+    for (let i = 0; i < pesanan.length; i++) {
+        console.log(`${i + 1}. ${pesanan[i].nama}`);
+        console.log(`   Harga    : Rp ${pesanan[i].harga}`);
+        console.log(`   Jumlah   : ${pesanan[i].jumlah}`);
+        console.log(`   Subtotal : Rp ${pesanan[i].subtotal}`);
+    }
 
-        // pilih berapa jumlah yang ingin dibeli
-        rl.question("Jumlah beli: ", function (jumlah) {
+    console.log("=================================");
+    console.log(`TOTAL BAYAR : Rp ${totalHarga}`);
 
-            let makanan = cariMenu(Number(pilih))
-            if (makanan !== null) {
-
-                let subtotal = makanan.harga * Number(jumlah)
-                totalHarga += subtotal
-
-                // simpan ke array pesanan
-                pesanan.push({
-                    nama: makanan.nama,
-                    harga: makanan.harga,
-                    jumlah: Number(jumlah),
-                    subtotal: subtotal
-                })
-
-                console.log("\nPesanan berhasil ditambahkan!")
-                console.log(`Menu     : ${makanan.nama}`)
-                console.log(`Jumlah   : ${jumlah}`)
-                console.log(`Subtotal : Rp ${subtotal}`)
-
-            } else {
-
-                console.log("\nMenu tidak ditemukan!")
-            }
-
-            // tanya lagi
-            rl.question("\nTambah pesanan lagi? (ya/tidak): ", function (jawab) {
-
-                if (jawab.toLowerCase() === "ya" || jawab.toLowerCase() === "y") {
-
-                    pesanMakanan()
-
-                } else {
-
-                    tampilkanStruk()
-                    bayar()
-
-                }
-
-            })
-
-        })
-
-    })
-
+    console.log("\nSilahkan ditunggu dan lakukan pembayaran terlebih dahulu!");
 }
 // Jalankan Program
 pesanMakanan()
