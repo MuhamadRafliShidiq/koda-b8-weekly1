@@ -69,26 +69,68 @@ const menu = [
 
 // Function Tampilkan Menu
 function tampilkanMenu() {
-    console.log("\n=================================")
-    console.log("      MENU RESTO LAZATTO")
-    console.log("=================================")
+
+    console.log("\n=================================");
+    console.log("        MENU RESTO LAZATTO");
+    console.log("=================================");
 
     for (let i = 0; i < menu.length; i++) {
-        console.log(
-            `${menu[i].id}. ${menu[i].nama} - Rp ${menu[i].harga}`
-        )
+        console.log(`${menu[i].id}. ${menu[i].nama}`);
     }
-    console.log("=================================")
+
+    console.log("=================================");
+
+    rl.question("\nPilih menu (id): ", function (pilih) {
+
+        switch (Number(pilih)) {
+
+            case 1:
+                pesanMakanan(friedChicken, "Fried Chicken");
+                break;
+
+            case 2:
+                pesanMakanan(geprek, "Geprek");
+                break;
+
+            case 3:
+                pesanMakanan(sadazz, "Sadazz");
+                break;
+
+            case 4:
+                pesanMakanan(ayamCLBK, "Ayam CLBK");
+                break;
+
+            case 5:
+                pesanMakanan(paketChicken, "Paket Chicken");
+                break;
+
+            case 6:
+                pesanMakanan(paketGeprek, "Paket Geprek");
+                break;
+
+            case 7:
+                pesanMakanan(sideDish, "Side Dish");
+                break;
+
+            case 8:
+                pesanMakanan(minuman, "Minuman");
+                break;
+
+            default:
+                console.log("\nMenu tidak tersedia!");
+                tampilkanMenu();
+                break;
+        }
+    });
 }
 
-// Function Cari Menu
-function cariMenu(id) {
-    for (let i = 0; i < menu.length; i++) {
-        if (menu[i].id === id) {
-            return menu[i]
+function cariMenu(dataMenu, id) {
+    for (let i = 0; i < dataMenu.length; i++) {
+        if (dataMenu[i].id === id) {
+            return dataMenu[i];
         }
     }
-    return null
+    return null;
 }
 
 let totalHarga = 0
